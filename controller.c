@@ -242,7 +242,7 @@ void loop(int map[COL][ROW])
             }
         }
 
-        while (!timeout_flag)
+        if (!timeout_flag)
         {
             char ch = getch();
             switch (ch)
