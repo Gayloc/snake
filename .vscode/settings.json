@@ -5,6 +5,7 @@
         "windows.h": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "controller.h": "c"
+        "controller.h": "c",
+        "conio.h": "c"
     }
 }

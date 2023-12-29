@@ -5,6 +5,7 @@
 #include <time.h>
 
 #include "controller.h"
+#include "menu.h"
 
 int get_food_axis(int max)
 {
@@ -93,16 +94,22 @@ void printMap(int map[COL][ROW])
 int start()
 {
     int selection;
-    printf("说明:w,a,s,d控制方向\n输入1开始,输入0结束\n");
-    scanf("%d", &selection);
-    switch (selection)
+    for (;;)
     {
-    case 1:
-        return 1;
-        break;
+        switch (menu())
+        {
+        case 1:
+            return 1;
+            break;
 
-    default:
-        return 0;
+        case 2:
+            about();
+            continue;
+
+        default:
+            return 0;
+            break;
+        }
         break;
     }
 }
@@ -135,7 +142,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n",*length);
+                printf("Game Over!,最大长度%d\n", *length);
                 return 0;
             }
         }
@@ -157,7 +164,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n",*length);
+                printf("Game Over!,最大长度%d\n", *length);
                 return 0;
             }
         }
@@ -179,7 +186,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n",*length);
+                printf("Game Over!,最大长度%d\n", *length);
                 return 0;
             }
         }
@@ -201,7 +208,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n",*length);
+                printf("Game Over!,最大长度%d\n", *length);
                 return 0;
             }
         }

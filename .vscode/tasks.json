@@ -9,6 +9,7 @@
                 "-g",
                 "${file}",
                 "./controller.c",
+                "./menu.c",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
