@@ -1,9 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
-extern int menu();
-extern void about();
-extern void score();
-extern void help();
+int menu();
+void about();
+void score();
+void help();
 
 #endif

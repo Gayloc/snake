@@ -29,11 +29,11 @@ enum Direction
 
 int get_food_axis(int max);
 void food(int map[COL][ROW]);
-extern void init(int map[COL][ROW]);
+void init(int map[COL][ROW]);
 void printMap(int map[COL][ROW]);
-extern int start();
+int start();
 void move(int map[COL][ROW]);
 int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int *length);
-extern int loop(int map[COL][ROW]);
+int loop(int map[COL][ROW]);
 
 #endif
