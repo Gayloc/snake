@@ -14,6 +14,7 @@ int menu() {
     printf("输入1开始游戏\n");
     printf("输入2查看信息\n");
     printf("输入3查看最高分数\n");
+    printf("输入其他数字退出\n");
     scanf("%d", &input);
     return input;
 }
