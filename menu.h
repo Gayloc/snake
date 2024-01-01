@@ -3,5 +3,6 @@
 
 extern int menu();
 extern void about();
+extern void score();
 
 #endif

@@ -9,9 +9,14 @@ int menu() {
 }
 
 void about() {
-    printf("-------------------------------\n");
+    printf("计算机二类2307班古佳乐8008123201\n");
 }
 
-int score() {
-    FILE *f = fopen("score.json", "r");
+void score() {
+    FILE *f = fopen("score.txt", "r");
+    int score = 0;
+    fscanf(f,"%d", &score);
+    
+    printf("上次分数: %d\n", score);
+    fclose(f);
 }

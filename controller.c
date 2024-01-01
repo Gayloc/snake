@@ -106,6 +106,10 @@ int start()
             about();
             continue;
 
+        case 3:
+            score();
+            continue;
+
         default:
             return 0;
             break;
@@ -226,7 +230,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
     return 1;
 }
 
-void loop(int map[COL][ROW])
+int loop(int map[COL][ROW])
 {
     struct Point head = {ROW / 2, COL / 2};
     int length = 3;
@@ -302,4 +306,5 @@ void loop(int map[COL][ROW])
         }
         printMap(map);
     }
+    return length;
 }

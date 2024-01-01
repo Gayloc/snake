@@ -10,7 +10,7 @@
 #endif
 
 #ifndef TIME
-#define TIME 500
+#define TIME 300
 #endif
 
 struct Point
@@ -34,6 +34,6 @@ void printMap(int map[COL][ROW]);
 extern int start();
 void move(int map[COL][ROW]);
 int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int *length);
-extern void loop(int map[COL][ROW]);
+extern int loop(int map[COL][ROW]);
 
 #endif

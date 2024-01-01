@@ -1,4 +1,5 @@
 #include "controller.h"
+#include "stdio.h"
 
 int main()
 {
@@ -7,7 +8,11 @@ int main()
     while (start())
     {
         init(map);
-        loop(map);
+        int length = loop(map);
+        
+        FILE *file = fopen("score.txt", "w");
+        fprintf(file, "%d", length);
+        fclose(file);
     }
     return 0;
 }
