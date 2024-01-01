@@ -146,7 +146,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n", *length);
+                printf("Game Over!,分数%d\n", *length);
                 return 0;
             }
         }
@@ -168,7 +168,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n", *length);
+                printf("Game Over!,分数%d\n", *length);
                 return 0;
             }
         }
@@ -190,7 +190,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n", *length);
+                printf("Game Over!,分数%d\n", *length);
                 return 0;
             }
         }
@@ -212,7 +212,7 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
             }
             else
             {
-                printf("Game Over!,最大长度%d\n", *length);
+                printf("Game Over!,分数%d\n", *length);
                 return 0;
             }
         }
