@@ -7,7 +7,7 @@
 #include "controller.h"
 #include "menu.h"
 
-int get_food_axis(int max)
+int get_food_axis(int max) //生成食物坐标
 {
     srand((unsigned int)time(NULL));
 
@@ -21,7 +21,7 @@ int get_food_axis(int max)
     return random_number;
 }
 
-void food(int map[COL][ROW])
+void food(int map[COL][ROW]) //使用食物坐标生成食物
 {
     struct Point food_axis;
 
@@ -34,7 +34,7 @@ void food(int map[COL][ROW])
     map[food_axis.x][food_axis.y] = -2;
 }
 
-void init(int map[COL][ROW])
+void init(int map[COL][ROW]) //地图初始化
 {
     for (int i = 0; i < COL; i++)
     {
@@ -55,7 +55,7 @@ void init(int map[COL][ROW])
     map[COL / 2][ROW / 2 - 2] = 1;
 }
 
-void printMap(int map[COL][ROW])
+void printMap(int map[COL][ROW]) //打印地图
 {
     system("cls");
     for (int i = 0; i < COL; i++)
@@ -64,24 +64,24 @@ void printMap(int map[COL][ROW])
         {
             if (map[i][j] == -1)
             {
-                printf("#");
+                printf("#"); //墙壁
                 // printf("%d",map[i][j]);
             }
             else if (map[i][j] == -2)
             {
-                printf("F");
+                printf("F"); //食物
                 // printf("%d",map[i][j]);
             }
             else
             {
                 if (map[i][j])
                 {
-                    printf("X");
+                    printf("X"); //身体
                     // printf("%d",map[i][j]);
                 }
                 else
                 {
-                    printf(" ");
+                    printf(" "); //空白
                     // printf("%d",map[i][j]);
                 }
             }
@@ -91,7 +91,7 @@ void printMap(int map[COL][ROW])
     printf("\n");
 }
 
-int start()
+int start() //主菜单，返回0时程序结束
 {
     int selection;
     for (;;)
@@ -122,7 +122,7 @@ int start()
     }
 }
 
-void move(int map[COL][ROW])
+void move(int map[COL][ROW]) //让地图中蛇的身体部分数字减一，实现移动效果
 {
     for (int i = 0; i < COL; i++)
     {
@@ -136,7 +136,7 @@ void move(int map[COL][ROW])
     }
 }
 
-int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int *length)
+int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int *length) //移动蛇头
 {
     switch (direction)
     {
@@ -145,8 +145,8 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
         {
             if (map[head->y + 1][head->x] == -2)
             {
-                *length = *length + 1;
-                food(map);
+                *length = *length + 1; //对应方向位置赋值当前长度
+                food(map); //生成食物
             }
             else
             {
@@ -229,37 +229,37 @@ int forward(int map[COL][ROW], struct Point *head, enum Direction direction, int
         break;
 
     default:
-        break;
+        break; //忽略w,a,s,d以外的输入
     }
-    return 1;
+    return 1; //没有失败情况，返回1
 }
 
-int loop(int map[COL][ROW])
+int loop(int map[COL][ROW]) //游戏循环
 {
-    struct Point head = {ROW / 2, COL / 2};
-    int length = 3;
-    enum Direction direction = right;
-    food(map);
+    struct Point head = {ROW / 2, COL / 2}; //默认蛇的生成位置在中间
+    int length = 3; //默认长度（与init函数中的初始化情况匹配）
+    enum Direction direction = right; //默认方向
+    food(map); //生成食物
     printMap(map);
     for (;;)
     {
-        DWORD start_time = GetTickCount();
-        int timeout_flag = 0;
+        DWORD start_time = GetTickCount(); //操作系统提供当前时间
+        int timeout_flag = 0; //计时结束标志
 
-        while (!kbhit())
+        while (!kbhit()) //如果键盘没有键被按下
         {
-            DWORD current_time = GetTickCount();
+            DWORD current_time = GetTickCount(); //获取现在的时间
 
-            if (current_time - start_time >= TIME)
+            if (current_time - start_time >= TIME) //如果超时
             {
                 timeout_flag = 1;
                 break;
             }
         }
 
-        if (!timeout_flag)
+        if (!timeout_flag) //如果没有超时
         {
-            char ch = getch();
+            char ch = getch(); //获取但不等待键盘输入
             switch (ch)
             {
             case 'w':
@@ -304,11 +304,11 @@ int loop(int map[COL][ROW])
             }
         }
 
-        if (!forward(map, &head, direction, &length))
+        if (!forward(map, &head, direction, &length)) //如果游戏失败
         {
             break;
         }
         printMap(map);
     }
-    return length;
+    return length; //返回本局游戏分数
 }
