@@ -4,5 +4,6 @@
 extern int menu();
 extern void about();
 extern void score();
+extern void help();
 
 #endif

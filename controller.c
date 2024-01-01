@@ -110,6 +110,10 @@ int start()
             score();
             continue;
 
+        case 4:
+            help();
+            continue;
+
         default:
             return 0;
             break;
