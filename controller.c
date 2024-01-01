@@ -93,7 +93,6 @@ void printMap(int map[COL][ROW]) //打印地图
 
 int start() //主菜单，返回0时程序结束
 {
-    int selection;
     for (;;)
     {
         switch (menu())
