@@ -13,7 +13,7 @@ int menu() {
     printf("   \\|_________|                                         \n");
     printf("------贪吃蛇-第一版------\n");
     printf("输入1开始游戏\n");
-    printf("输入2查看信息\n");
+    printf("输入2查看关于\n");
     printf("输入3查看最高分数\n");
     printf("输入4查看帮助\n");
     printf("输入其他数字退出\n");
